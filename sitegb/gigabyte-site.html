@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gigabyte Sistemas - Automação Comercial Inteligente</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --laranja: #FF6600;
+            --preto: #1A1D23;
+            --branco: #FFFFFF;
+            --cinza-claro: #F4F4F7;
+            --cinza: #4B5563;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--cinza);
+            background: var(--branco);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: var(--preto);
+            padding: 1.2rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--branco);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--laranja), #ff8833);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--branco);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--laranja);
+        }
+
+        .btn-demo {
+            background: var(--laranja);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-demo:hover {
+            background: #ff7722;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 102, 0, 0.4);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--cinza-claro) 0%, #e8e8ed 100%);
+            padding: 140px 2rem 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(255, 102, 0, 0.08), transparent);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 5rem;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-text h1 {
+            font-size: 3.8rem;
+            font-weight: 900;
+            color: var(--preto);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-text h1 span {
+            background: linear-gradient(135deg, var(--laranja), #ff8833);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            color: var(--cinza);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.2rem;
+        }
+
+        .btn-primary {
+            background: var(--laranja);
+            color: white;
+            padding: 1rem 2.2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: #ff7722;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 102, 0, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--laranja);
+            padding: 1rem 2.2rem;
+            border: 2px solid var(--laranja);
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--laranja);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .dashboard-mockup {
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.2);
+            padding: 1.5rem;
+            transform: perspective(1000px) rotateY(-8deg);
+            transition: all 0.5s ease;
+        }
+
+        .hero-image:hover .dashboard-mockup {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        .mockup-header {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .mockup-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+        }
+
+        .mockup-content {
+            background: var(--cinza-claro);
+            border-radius: 12px;
+            padding: 2rem;
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .chart-bar {
+            background: linear-gradient(90deg, var(--laranja), #ff8833);
+            height: 40px;
+            border-radius: 8px;
+            animation: growBar 1.5s ease-in-out;
+        }
+
+        @keyframes growBar {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        .trust {
+            background: white;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .trust p {
+            color: var(--cinza);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .trust-number {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--laranja);
+        }
+
+        .features {
+            padding: 100px 2rem;
+            background: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            color: var(--preto);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--cinza);
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .feature-card {
+            background: var(--cinza-claro);
+            padding: 2.5rem;
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            border: 3px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.12);
+            border-color: var(--laranja);
+            background: white;
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--laranja), #ff8833);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.4s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: var(--preto);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: var(--cinza);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .benefits {
+            padding: 100px 2rem;
+            background: var(--cinza-claro);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .benefits-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 1.5rem;
+            align-items: start;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateX(15px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .benefit-icon {
+            min-width: 50px;
+            width: 50px;
+            height: 50px;
+            background: var(--laranja);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 900;
+            font-size: 1.5rem;
+        }
+
+        .benefit-text h4 {
+            color: var(--preto);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .cta {
+            background: linear-gradient(135deg, var(--preto), #2a2e36);
+            padding: 100px 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(255, 102, 0, 0.15), transparent);
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .cta h2 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .cta p {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 3rem;
+        }
+
+        footer {
+            background: var(--preto);
+            color: rgba(255,255,255,0.7);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3, .footer-section h4 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.8rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--laranja);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 968px) {
+            .nav-links { display: none; }
+            .hero-content, .benefits-grid, .footer-content {
+                grid-template-columns: 1fr;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-text h1 { font-size: 2.5rem; }
+            .section-title h2 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">
+                <div class="logo-icon">GB</div>
+                <span>Gigabyte Sistemas</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#solucoes">Soluções</a></li>
+                <li><a href="#planos">Planos</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#demo" class="btn-demo">Demo Gratuita</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Automatize seu Negócio,<br><span>Multiplie seus Lucros</span></h1>
+                <p>Sistema inteligente para gestão completa de estoque, vendas, PDV e finanças. Simplifique, cresça e vença a concorrência.</p>
+                <div class="hero-buttons">
+                    <a href="geral.html" class="btn-primary">Solicitar Demonstração</a>
+                    <a href="#" class="btn-secondary">Conhecer Soluções</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="dashboard-mockup">
+                    <div class="mockup-header">
+                        <div class="mockup-dot"></div>
+                        <div class="mockup-dot"></div>
+                        <div class="mockup-dot"></div>
+                    </div>
+                    <div class="mockup-content">
+                        <div class="chart-bar" style="width: 85%;"></div>
+                        <div class="chart-bar" style="width: 65%;"></div>
+                        <div class="chart-bar" style="width: 92%;"></div>
+                        <div class="chart-bar" style="width: 75%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust">
+        <p>Confiança de</p>
+        <span class="trust-number">+5.000</span>
+        <p>empresas em todo Brasil</p>
+    </section>
+
+    <section class="features" id="solucoes">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tudo que seu negócio precisa em um só lugar</h2>
+                <p>Funcionalidades poderosas que transformam a gestão do seu comércio</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Gestão de Estoque</h3>
+                    <p>Controle total do seu estoque em tempo real. Nunca mais perca vendas por falta de produto ou dinheiro parado em mercadoria encalhada.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💳</div>
+                    <h3>PDV Completo</h3>
+                    <p>Sistema de frente de caixa rápido, intuitivo e preparado para alta demanda. Venda mais em menos tempo.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Relatórios Inteligentes</h3>
+                    <p>Dashboards completos e relatórios que revelam insights estratégicos para decisões mais inteligentes e lucrativas.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Gestão Financeira</h3>
+                    <p>Controle completo de contas a pagar e receber, fluxo de caixa e conciliação bancária. Sua saúde financeira sob controle.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Multi-plataforma</h3>
+                    <p>Acesse de qualquer lugar: computador, tablet ou smartphone. Seu negócio na palma da sua mão.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Segurança Total</h3>
+                    <p>Seus dados protegidos com criptografia de ponta e backup automático. Durma tranquilo sabendo que tudo está seguro.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits">
+        <div class="container">
+            <div class="benefits-grid">
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">⚡</div>
+                        <div class="benefit-text">
+                            <h4>Economize até 15 horas por semana</h4>
+                            <p>Automatize tarefas repetitivas e foque no crescimento do seu negócio</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">💎</div>
+                        <div class="benefit-text">
+                            <h4>Aumente suas vendas em até 40%</h4>
+                            <p>Gestão eficiente permite identificar oportunidades e vender mais</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🎯</div>
+                        <div class="benefit-text">
+                            <h4>Reduza perdas e desperdícios</h4>
+                            <p>Controle preciso elimina prejuízos com produtos vencidos ou roubados</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🚀</div>
+                        <div class="benefit-text">
+                            <h4>Implantação em até 24 horas</h4>
+                            <p>Suporte completo do início ao fim. Comece a usar rapidamente</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="section-title" style="text-align: left;">
+                        <h2>Por que mais de 5.000 empresas confiam na Gigabyte?</h2>
+                        <p style="margin: 0;">Transformamos desafios em resultados. Nossa tecnologia foi desenvolvida por quem entende o dia a dia do varejo brasileiro.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="cta-content">
+            <h2>Pronto para revolucionar seu negócio?</h2>
+            <p>Teste grátis por 15 dias. Sem compromisso. Sem cartão de crédito.</p>
+            <a href="#" class="btn-primary" style="font-size: 1.2rem; padding: 1.2rem 3rem;">Começar Teste Gratuito Agora</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Gigabyte Sistemas</h3>
+                <p>Automação comercial inteligente para empresas que querem crescer e se destacar no mercado.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Produto</h4>
+                <ul>
+                    <li><a href="#">Funcionalidades</a></li>
+                    <li><a href="#">Planos</a></li>
+                    <li><a href="#">Integrações</a></li>
+                    <li><a href="#">Atualizações</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Empresa</h4>
+                <ul>
+                    <li><a href="#">Sobre nós</a></li>
+                    <li><a href="#">Cases</a></li>
+                    <li><a href="#">Carreiras</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Suporte</h4>
+                <ul>
+                    <li><a href="#">Central de Ajuda</a></li>
+                    <li><a href="#">Contato</a></li>
+                    <li><a href="#">WhatsApp</a></li>
+                    <li><a href="#">Treinamentos</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Gigabyte Sistemas. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
