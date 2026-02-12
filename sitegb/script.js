@@ -13,3 +13,14 @@ const observer = new IntersectionObserver((entries) => {
 const hiddenElements = document.querySelectorAll('.hidden');
 
 hiddenElements.forEach((el) => observer.observe(el));
+
+const MenuMobile = document.querySelector('.MenuMobile');
+const NavLinks = document.querySelector('.nav-links');
+const icon = MenuMobile.querySelector('i');
+
+MenuMobile.addEventListener('click', () => {NavLinks.classList.toggle('active');});
+
+if(NavLinks.classList.contains('active')){
+    icon.classList.remove('f-bars');
+    icon.classList.add('fa-xmark');
+}
