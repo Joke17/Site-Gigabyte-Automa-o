@@ -1,12 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        /* html{
-            background-color: lightgray;
-        } */
+
+html{
+    scroll-behavior: smooth;
+    scroll-padding-top: 6.5rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    font-family: "Ubuntu", sans-serif;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden; 
+}
 
         :root {
             --laranja: #FF6600;
@@ -26,13 +37,29 @@ p {
     /* Remova o !important se tiver */
 }
 
+        .nav-btns{
+            color: var(--branco);
+            background-color: var(--cinza);
+            margin-top: 1%;
+            max-width: 80%;
+        }
+
+        .nav-btns a{
+            color: var(--branco);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
         .containerConteudoPrincipal{
             display: flex;
             background-color: var(--preto);
             color: var(--cinza-claro);
-            border-radius: 28px;
+            border-radius: 35px;
             padding: 1.5%;
-            margin-bottom: 3%;
+            margin: 0 auto;
+            width: 98%;
         }
 
         .divConteudoPrincipal{
@@ -43,8 +70,17 @@ p {
         }
 
         .divConteudoPrincipal>h1{
-            margin-bottom: 10px
+            margin-bottom: 10px;
         }
+
+        .divConteudoPrincipal p{
+            font-size: 1.5rem;
+        }
+
+        /* .divConteudoPrincipal a{
+            font-size: 1.4rem;
+        } */
+
 
         .divLinkCtPrincipal{
             display: block;
@@ -52,14 +88,9 @@ p {
 
         .divImagemPrincipal{
             width:40%;
-            margin-left: auto;
+            /* margin-left: auto;
             margin-top: auto;
-            margin-bottom: auto;
-        }
-
-        .conteinerConteudoSecundario{
-            margin: 0 auto;
-            width: 80%;
+            margin-bottom: auto; */
         }
 
         .divConteudoSecundario{
@@ -67,6 +98,15 @@ p {
             /* background-color: lightsalmon; */
             border-radius: 25px;
         }
+
+        .divConteudoSecundario h2{
+            font-size: 2rem;
+        }
+        .divConteudoSecundario p{
+            font-size: 1.3rem;
+        }
+    
+        
 
         .linhaSecundaria{
             background-color: var(--cinza-claro);
@@ -81,22 +121,29 @@ p {
 
         .divTextoSecundario{
             border-radius: 30px;
-            margin: 2%;
+            margin: 2% 0 2% 2%;
             /* width: 30%;
             height: 30%; */
+            width: 50%;
+
             padding: 2%;
         }
         
         .divImagemSecundario{
             padding: 2%;
             margin: 2%;
+            height: 3%;
+            width: 45%;
+        }
+
+        .containerFechamento{
+            background-color: var(--cinza);
         }
 
         .divFechamento{
             text-align: center;
             padding: 3% 0 5% 0;
             height: 20%;
-            background-color: var(--cinza);
         }
 
         .divFechamento>h1{
@@ -134,12 +181,13 @@ p {
             background: var(--branco);
             line-height: 1.6;
             overflow-x: hidden;
-            padding: 20px;
+            padding: 0;
+            margin: 0;
         }
 
         header {
             background: var(--preto);
-            padding: 1.2rem 0;
+            padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
@@ -147,8 +195,12 @@ p {
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
         }
 
+        header nav{
+            font-family: "Noto Sans", sans-serif;
+        }
+
         nav {
-            max-width: 1200px;
+            max-width: 100%;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -209,7 +261,9 @@ p {
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
+            /* font-size: 1.4rem; */
             transition: all 0.3s ease;
+            /* height: 10rem; */
         }
 
         #btnvendedor{
@@ -629,3 +683,42 @@ p {
                 font-size: 2.2rem;
             }
         }
+
+.MenuMobile{
+    display: none;
+    color: var(--branco);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+@media(max-width:968px) {
+    .MenuMobile{
+        display: block;
+        z-index: 1100;
+    }
+
+    .nav-links{
+        right: 0;
+        top: 0;
+        height: 100vh;
+        width: 50%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    
+    }
+}
+
+.hidden{
+    opacity: 0 !important;
+    filter: blur(5px) !important;
+    transform: translateX(-100%) !important;
+    transition: all 0.5s ease !important;
+}
+
+.show{
+    opacity: 1 !important;
+    filter: blur(0) !important;
+    transform: translateX(0) !important;
+    transition: all 0.5s ease !important;
+}

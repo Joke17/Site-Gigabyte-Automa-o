@@ -8,20 +8,36 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
     <script src="https://kit.fontawesome.com/36842ecef1.js" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
-    <header style>
+    <header>
         <nav>
             <a href="https://gigabyteautomacao.com.br" class="logo">
                 <div class="logo-icon"><img class="icon" src="imgs/icon.png" alt="Logo"></div>
-                <span>Gigabyte Sistemas</span>
+                <span>GigaByte Sistemas</span>
             </a>
             <ul class="nav-links">
+                <li><a href="https://gigabyteautomacao.com.br">Soluções</a></li>
+                <li><a href="#funcionalidades">Funcionalidades</a></li>
                 <li><a href="#contato">Contato</a></li>
                 <li><a href="#demo" class="btn-demo">Demo Gratuita</a></li>
             </ul>
+
+            <div class="MenuMobile">
+                <i class="fa-solid fa-bars"></i>
+            </div>
         </nav>
+        <!-- <nav class="nav-btns">
+            <a href="index.html#solucoes">Soluções</a>
+            <a href="index.html#funcionalidades">Funcionalidades</a>
+            <a href="#contato">Contato</a>
+        </nav> -->
     </header>
 
     <main>
@@ -29,7 +45,7 @@
         <br>
 
         <div class="containerConteudoPrincipal">
-            <div class="divConteudoPrincipal">
+            <div class="divConteudoPrincipal hidden" style="transition-delay: 200ms">
                 <h1>Sistema de automação para varejo</h1>
                 <p>No varejo, cada segundo no balcão conta. O sistema Gigabyte transforma seu Frente de Caixa (PDV) em
                     uma ferramenta ultra-rápida, eliminando filas e garantindo a satisfação do seu cliente. Mais do que
@@ -39,31 +55,33 @@
                     código de barras. Simplifique sua operação e venda com a segurança de quem está 100% em dia.</p>
                 <br>
                 <a href="https://api.whatsapp.com/send?phone=553898841649&text=Ol%C3%A1%2C%20tenho%20interesse%20no%20sistema%20para%20varejo%2C%20vim%20pelo%20site."
-                    class="btn-demo">
+                    class="btn-demo" style="transition-delay: 200ms">
                     Fale com um vendedor
                 </a>
             </div>
-            <div class="divImagemPrincipal"><img src="imgs/imgsec3.jpg" alt="Sistema"></div>
+            <div class="divImagemPrincipal hidden" style="transition-delay: 200ms"><img src="imgs/imgsec3.jpg" alt="Sistema" style="transition-delay: 200ms"></div>
         </div>
 
-        <div style="margin-bottom: 4%;">
+        <br>
+
+        <div class="containerConteudoSecundario" id="funcionalidades">
             <section class="linhaSecundaria">
-                <div class="divConteudoSecundario">
-                    <div class="divTextoSecundario">
-                        <h3>Frente de Caixa (PDV)</h3>
+                <div class="divConteudoSecundario hidden" style="transition-delay: 200ms">
+                    <div class="divTextoSecundario hidden" style="transition-delay: 200ms">
+                        <h2>Frente de Caixa (PDV)</h2>
                         <p>Elimine filas e feche vendas em segundos. Nosso PDV foi desenhado para ser intuitivo: seu
                             funcionário aprende a usar em minutos, sem necessidade de treinamentos complexos. Compatível
                             com leitores de código de barras e balanças, ele garante agilidade no atendimento e que seu
                             caixa bata centavo por centavo no final do dia. Venda mais rápido e sem erros.
                         </p>
                     </div>
-                    <div class="divImagemSecundario"><img src="imgs/imgsec1.jpg" alt="Sistema"></div>
+                    <div class="divImagemSecundario hidden" style="transition-delay: 200ms"><img src="imgs/imggeralpdv.png" alt="Sistema" style="transition-delay: 200ms"></div>
                 </div>
             </section>
             <section class="linhaSecundaria">
-                <div class="divConteudoSecundario">
-                    <div class="divImagemSecundario"><img src="imgs/imgsec2.jpg" alt="Sistema"></div>
-                    <div class="divTextoSecundario">
+                <div class="divConteudoSecundario hidden" style="transition-delay: 200ms">
+                    <div class="divImagemSecundario hidden" style="transition-delay: 200ms"><img src="imgs/imggeralnfe.png" alt="Sistema" style="transition-delay: 200ms"></div>
+                    <div class="divTextoSecundario hidden" style="transition-delay: 200ms">
                         <h2>Controle de Estoque</h2>
                         <p>Pare de empatar capital em produtos parados ou perder vendas por falta de mercadoria. Tenha
                             visão total da entrada e saída de itens em tempo real. O sistema avisa o momento certo de
@@ -74,52 +92,43 @@
                 </div>
             </section>
             <section class="linhaSecundaria">
-                <div class="divConteudoSecundario">
-                    <div class="divTextoSecundario">
-                        <h3>Emissão de NF-e e NFC-e</h3>
+                <div class="divConteudoSecundario hidden" style="transition-delay: 200ms">
+                    <div class="divTextoSecundario hidden" style="transition-delay: 200ms">
+                        <h2>Emissão de NF-e e NFC-e</h2>
                         <p>Adeus à burocracia e ao medo de multas. Emita Nota Fiscal Eletrônica (NF-e) e Nota ao
                             Consumidor (NFC-e) com apenas um clique, já integrado à SEFAZ do seu estado. O sistema
                             calcula os impostos automaticamente e organiza os arquivos XML para enviar ao seu contador.
                             Foque em vender, nós cuidamos da parte chata e mantemos sua empresa 100% legalizada.
                         </p>
                     </div>
-                    <div class="divImagemSecundario"><img src="imgs/imgsec3.jpg" alt="Sistema"></div>
+                <div class="divImagemSecundario hidden" style="transition-delay: 200ms"><img src="imgs/imggeralnfe.png" alt="Sistema" style="transition-delay: 200ms"></div>
                 </div>
             </section>
         </div>
 
+        <!-- <img src="imgs/imggeral.png" alt="Sistema geral PDV"> -->
 
-        <div class="divFechamento">
-            <h1>Venha crescer junto com a Gigabyte você também!</h1>
-            <br>
-            <h3>Converse com um de nossos colaboradores e saiba como alavancar seu negócio</h3>
-            <br>
-            <a href="https://api.whatsapp.com/send?phone=553898841649&text=Ol%C3%A1%2C%20tenho%20interesse%20no%20sistema%20para%20varejo%2C%20vim%20pelo%20site."
-                class="btnVendedor">
-                Fale com um vendedor
-            </a>
+        <div class="containerFechamento">
+            <div class="divFechamento hidden" style="transition-delay: 200ms">
+                <h1>Venha crescer junto com a GigaByte você também!</h1>
+                <br>
+                <h3>Converse com um de nossos colaboradores e saiba como alavancar seu negócio</h3>
+                <br>
+                <a href="https://api.whatsapp.com/send?phone=553898841649&text=Ol%C3%A1%2C%20tenho%20interesse%20no%20sistema%20para%20varejo%2C%20vim%20pelo%20site."
+                    class="btnVendedor">
+                    Fale com um vendedor
+                </a>
+            </div>
         </div>
 
 
 
-        <!-- <div class="divFuncionalidades">
-            <div class="divTexto1"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere aspernatur ea voluptates commodi autem adipisci sit unde nulla voluptas error voluptate, hic optio? Temporibus voluptate voluptas libero soluta id veniam.</p></div>
-            <div class="divImagem1"><img src="imgs/200.png" alt="mesas"></div>
-
-            <div class="divTexto2"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere aspernatur ea voluptates commodi autem adipisci sit unde nulla voluptas error voluptate, hic optio? Temporibus voluptate voluptas libero soluta id veniam.</p></div>
-            <div class="divImagem2"></div>
-
-            <div class="divTexto3"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere aspernatur ea voluptates commodi autem adipisci sit unde nulla voluptas error voluptate, hic optio? Temporibus voluptate voluptas libero soluta id veniam.</p></div>
-            <div class="divImagem3"></div>
-     </div>
-    </main> -->
-
-        <footer>
-            <div class="footer-content">
-                <div class="footer-section">
+        <footer id="contato">
+            <div class="footer-content hidden">
+                <div class="footer-section hidden">
                     <h3>Gigabyte Sistemas</h3>
                     <p>Automação comercial inteligente para empresas que querem crescer e se destacar no mercado.</p>
-                    <div class="footerIcon">
+                    <div class="footerIcon hidden">
                         <div><a href="https://instagram.com/gigabyteautomacao"><i
                                     class="fa-brands fa-instagram"></i></a></div>
                         <!-- <div><a href="https://instagram.com/gigabyteautomacao"><i
@@ -135,7 +144,7 @@
                     <li><a href="#">Atualizações</a></li>
                 </ul>
             </div> -->
-                <div class="footer-section">
+                <div class="footer-section hidden">
                     <h4>Fale com a gente</h4>
                     <ul>
                         <li><a
@@ -153,7 +162,7 @@
                         <!-- REDIRECIONAR PARA EMAIL SUPORTE -->
                     </ul>
                 </div>
-                <div class="footer-section">
+                <div class="footer-section hidden">
                     <h4><a href="#">Sobre nós</a></h4>
                     <!-- REDIRECIONAR PARA O INSTITUCIONAL -->
                     <!-- <ul>
@@ -164,10 +173,13 @@
                 </ul> -->
                 </div>
             </div>
-            <div class="footer-bottom">
+            <div class="footer-bottom hidden">
                 <p>&copy; 2025 Gigabyte Sistemas. Todos os direitos reservados.</p>
             </div>
         </footer>
+
+<script src="script.js"></script>
+
 </body>
 
 </html>
