@@ -6,6 +6,7 @@
         display: block;
         z-index: 1100;
     }
+}
 
 html{
     scroll-behavior: smooth;
