@@ -18,9 +18,10 @@ const MenuMobile = document.querySelector('.MenuMobile');
 const NavLinks = document.querySelector('.nav-links');
 const icon = MenuMobile.querySelector('i');
 
-MenuMobile.addEventListener('click', () => {NavLinks.classList.toggle('active');});
-
-if(NavLinks.classList.contains('active')){
-    icon.classList.remove('f-bars');
-    icon.classList.add('fa-xmark');
-}
+MenuMobile.addEventListener('click', () => {
+    NavLinks.classList.toggle('active');
+    if(NavLinks.classList.contains('active')){
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-xmark');
+    }
+});

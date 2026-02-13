@@ -4,16 +4,10 @@
 
 /* MOBILE */
 @media screen and (max-width:968px) {
+
     .MenuMobile{
         display: block;
         z-index: 1100;
-    }
-
-    .MenuMobile{
-        display: none;
-        color: var(--branco);
-        font-size: 2rem;
-        cursor: pointer;
     }
 
 
@@ -41,7 +35,12 @@
 
 /* DESKTOP */
 @media screen and (min-width:968px) {
-    
+    .MenuMobile{
+        display: none;
+        color: var(--branco);
+        font-size: 2rem;
+        cursor: pointer;
+    }
 }
 
 html{
