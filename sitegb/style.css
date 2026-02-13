@@ -8,6 +8,35 @@
         display: block;
         z-index: 1100;
     }
+
+    .MenuMobile{
+        display: none;
+        color: var(--branco);
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+
+
+    .nav-links{
+        position: fixed;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        width: 50%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(100%);
+        background-color: var(--preto);
+        display: flex;
+        gap: 2rem;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .nav-links.active{
+        transform: translateX(0);
+    }
 }
 
 /* DESKTOP */
@@ -697,36 +726,6 @@ p {
                 font-size: 2.2rem;
             }
         }
-
-.MenuMobile{
-    display: none;
-    color: var(--branco);
-    font-size: 2rem;
-    cursor: pointer;
-}
-
-
-
-    .nav-links{
-        position: fixed;
-        right: 0;
-        top: 0;
-        height: 100vh;
-        width: 50%;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transform: translateX(100%);
-        background-color: var(--preto);
-        display: flex;
-        gap: 2rem;
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .nav-links.active{
-        transform: translateX(0);
-    }
-}
 
 .hidden{
     opacity: 0 !important;
