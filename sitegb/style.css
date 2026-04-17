@@ -1,5 +1,100 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* =========================================
+   CABEÇALHO 100% IDÊNTICO AO TEMA BETHANY
+   ========================================= */
+
+#header {
+    background: #fff !important;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1) !important;
+    top: 0 !important;
+    padding: 0 !important;
+    height: 70px !important; /* Trava a altura fina do cabeçalho original */
+    display: flex;
+    align-items: center;
+}
+
+#header .logo {
+    padding: 12px 0 !important; /* Tira o padding direito excessivo */
+}
+
+#header .logo img {
+    max-height: 40px !important; /* Imagem um pouco menor para não estourar a altura */
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.nav-menu ul {
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.nav-menu > ul > li {
+    position: relative;
+    white-space: nowrap;
+}
+
+.nav-menu a {
+    display: block !important;
+    position: relative;
+    color: #36343a !important;
+    padding: 10px 15px !important;
+    transition: 0.3s;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    text-transform: uppercase !important;
+    font-family: "Poppins", sans-serif !important;
+    text-decoration: none !important; /* Garante que nunca fique sublinhado */
+}
+
+.nav-menu a:hover, 
+.nav-menu .active > a {
+    color: var(--laranja) !important;
+    text-decoration: none !important;
+}
+
+/* Botão Laranja Original */
+.nav-menu .get-started a {
+    background: var(--laranja) !important;
+    color: #fff !important;
+    border-radius: 50px !important;
+    margin: 0 0 0 15px !important;
+    padding: 10px 20px !important;
+    border: none !important;
+}
+
+.nav-menu .get-started a:hover {
+    background: #CA5B00 !important; /* Cor secundária do seu root */
+}
+
+/* Botão Área do Cliente Original */
+.nav-menu .get-started.client-area a {
+    background-color: #fff !important;
+    color: #222 !important;
+    border: 1px solid #222 !important;
+    margin-left: 10px !important;
+}
+
+.nav-menu .get-started.client-area a:hover {
+    background: #222 !important;
+    color: #fff !important;
+}
+
+/* Esconder no Mobile e Margem da Div Principal */
+@media (max-width: 992px) {
+    .nav-menu { display: none !important; }
+    #header { height: auto !important; padding: 10px 0 !important; }
+    .containerConteudoPrincipal { margin-top: 100px !important; }
+}
+@media (min-width: 993px) {
+    .containerConteudoPrincipal { margin-top: 100px !important; }
+}
+
 
 @media (max-width: 968px) {
     .containerConteudoPrincipal {
@@ -252,8 +347,9 @@ p {
     background-color: var(--preto);
     color: var(--cinza-claro);
     border-radius: 35px;
-    padding: 1.5%;
+    padding: 4rem 2rem;
     margin: 0 auto;
+    margin-top: 130px;
     width: 98%;
 }
 
